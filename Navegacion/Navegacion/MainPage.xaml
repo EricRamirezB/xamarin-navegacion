@@ -1,14 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Navegacion"
-             x:Class="Navegacion.MainPage">
+                  xmlns:Views="clr-namespace:Navegacion.Views"
+                  x:Class="Navegacion.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+     <MasterDetailPage.Master>
+        <ContentPage Title="Master">
+            <StackLayout Orientation="Vertical">
+                <Button Text="Inicio" Clicked="Inicio_Click"/>
+                <Button Text="Contactenos" Clicked="Contactenos_Click"/>
+                <Button Text="Acerca de" Clicked="Acerca_Click"/>
+            </StackLayout>    
+        </ContentPage>
+     </MasterDetailPage.Master>
 
-</ContentPage>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <Views:HomePage />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>
